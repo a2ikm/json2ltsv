@@ -2,9 +2,19 @@
 
 trap("SIGINT") { exit }
 
-require "yajl/json_gem"
 require "ltsv"
 
+begin
+  require "oj"
+  JSON = Oj
+rescue LoadError
+  begin
+    require "yajl/json_gem"
+  rescue LoadError
+    require "json"
+  end
+end
+
 ARGF.each do |line|
-  puts LTSV.dump(JSON.parse(line.strip))
+  puts LTSV.dump(JSON.load(line.strip))
 end
