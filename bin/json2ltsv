@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+require "yajl/json_gem"
+require "ltsv"
+
+ARGF.each do |line|
+  puts LTSV.dump(JSON.parse(line.strip))
+end

@@ -1,6 +1,6 @@
 # Json2ltsv
 
-TODO: Write a gem description
+Convert JSON to LTSV line by line.
 
 ## Installation
 
@@ -18,7 +18,15 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+$ json2ltsv JSON_FILE > LTSV_FILE
+```
+
+or
+
+```
+$ cat JSON_FILE | json2ltsv > LTSV_FILE
+```
 
 ## Contributing
 
